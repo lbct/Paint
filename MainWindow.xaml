@@ -1,0 +1,35 @@
+﻿<telerik:RadWindow x:Class="Pinta.MainWindow"
+		xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+		xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+		xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation"
+		xmlns:navigation="clr-namespace:Telerik.Windows.Controls.Navigation;assembly=Telerik.Windows.Controls.Navigation"
+        navigation:RadWindowInteropHelper.ShowInTaskbar="True"
+		Header="Pinta" Height="600" Width="800">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <StackPanel Orientation="Horizontal">
+                <telerik:RadPathButton Name="dibuja_linea_boton" Click="dibuja_linea_boton_Click" Margin="10" MinWidth="100" PathGeometry="{telerik:RadGlyph Glyph=&#xe510;}" Content="Linea"></telerik:RadPathButton>
+                <telerik:RadPathButton Name="dibuja_rec_boton" Click="dibuja_rec_boton_Click" Margin="10" MinWidth="100" PathGeometry="{telerik:RadGlyph Glyph=&#xe304;}" Content="Rectangulo"></telerik:RadPathButton>
+                <telerik:RadPathButton Name="dibuja_trian_boton" Click="dibuja_trian_boton_Click" Margin="10" MinWidth="100" PathGeometry="{telerik:RadGlyph Glyph=&#xe517;}" Content="Triangulo"></telerik:RadPathButton>
+                <telerik:RadPathButton Name="dibuja_circulo_boton" Click="dibuja_circulo_boton_Click"  Margin="10" MinWidth="100" PathGeometry="{telerik:RadGlyph Glyph=&#xe309;}" Content="Circulo"></telerik:RadPathButton>
+                <telerik:RadPathButton Name="pintar_boton" Click="pintar_boton_Click"  Margin="10" MinWidth="100" PathGeometry="{telerik:RadGlyph Glyph=&#xe50e;}" Content="Pintar"></telerik:RadPathButton>
+            </StackPanel>
+            <telerik:RadColorPicker Grid.Column="1" Name="color_pick" SelectedColorChanged="color_pick_SelectedColorChanged"></telerik:RadColorPicker>
+        </Grid>
+        <Grid Grid.Row="1" Background="Gray">
+            <ScrollViewer Margin="20" Cursor="Cross">
+                <Canvas Name="canvas" MouseMove="canvas_MouseMove" MouseRightButtonDown="canvas_MouseRightButtonDown" PreviewMouseLeftButtonDown="canvas_PreviewMouseLeftButtonDown" PreviewMouseLeftButtonUp="canvas_PreviewMouseLeftButtonUp" MouseLeave="canvas_MouseLeave" Background="White" Height="600" Width="800">
+                    
+                </Canvas>
+            </ScrollViewer>
+        </Grid>
+    </Grid>
+</telerik:RadWindow>
